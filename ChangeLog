@@ -2,6 +2,9 @@
 ------
 1. Fix inconsistent sizing in player icon dialog.
 2. Add icon for HQPlayer - thanks to crystalgipsy.
+3. Show command result text for now playing alt buttons - thanks to Alasdair
+   Campbell.
+4. Add outline/disabled jiveStyle icon mappings - thanks to Alasdair Campbell.
 
 6.4.9
 -----
