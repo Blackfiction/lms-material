@@ -187,6 +187,7 @@ function replaceNewLines(str) {
 
 function formatTechInfo(item, source, isCurrent) {
     let technical = [];
+    let haveSampleRate = false;
     // Bit rate should be Xkbps, but sometimes LMS returns 0 (as num or string?)
     // ...so only valid if more than 1 char
     if (undefined!=item.bitrate && (""+item.bitrate).length>1) {
@@ -197,6 +198,7 @@ function formatTechInfo(item, source, isCurrent) {
     }
     if (item.samplerate && parseInt(item.samplerate)>100) {
         technical.push((item.samplerate/1000)+"kHz");
+        haveSampleRate = true;
     }
     if (undefined!=item.replay_gain) {
         let val = parseFloat(item.replay_gain);
@@ -208,12 +210,14 @@ function formatTechInfo(item, source, isCurrent) {
         let bracket = item.type.indexOf(" (");
         let type = bracket>0 ? item.type.substring(0, bracket) : item.type;
         // BBC Sounds has aac@48000Hz, want just aac
-        if (type.length>4 && item.samplerate && type.indexOf("@")>2 && type.indexOf("Hz")>4) {
+        if (type.length>4 && haveSampleRate && type.indexOf("@")>2 && type.indexOf("Hz")>4) {
             type = type.split("@")[0];
         }
         // Only want encoding types - not (e.g.) 'YouTube Music'
-        if (type.length<=4 && (undefined==source || undefined==source.text || (type!=source.text && type!=source.text.replace(/ /g,'')))) {
-            technical.push(type.toUpperCase());
+        if (undefined==source ||
+            undefined==source.text ||
+            (type!=source.text && type.replace(/ /g,'').toLowerCase()!=source.text.replace(/ /g,'').toLowerCase())) {
+            technical.push(type);
         }
     }
     return technical.length>0 ? (item.transcoded ? TRANSCODED_PREFIX : "") + technical.join(', ') : undefined;

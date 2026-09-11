@@ -5,6 +5,8 @@
 3. Show command result text for now playing alt buttons - thanks to Alasdair
    Campbell.
 4. Add outline/disabled jiveStyle icon mappings - thanks to Alasdair Campbell.
+5. Show 'type' field of technical info as is, unless 'type' is same as
+   'source'.
 
 6.4.9
 -----
