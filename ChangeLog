@@ -5,6 +5,7 @@
 3. Show command result text for now playing alt buttons - thanks to Alasdair
    Campbell.
 4. Add outline/disabled jiveStyle icon mappings - thanks to Alasdair Campbell.
+5. Don't fire 'Rescan album' twice if it needed to be scolled into view.
 
 6.4.9
 -----
