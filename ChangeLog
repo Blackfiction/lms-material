@@ -7,6 +7,7 @@
 4. Add outline/disabled jiveStyle icon mappings - thanks to Alasdair Campbell.
 5. Show 'type' field of technical info as is, unless 'type' is same as
 6. Don't fire 'Rescan album' twice if it needed to be scolled into view.
+7. If SlimBrowse item has an 'extid' field, then map to emblem.
 
 6.4.9
 -----

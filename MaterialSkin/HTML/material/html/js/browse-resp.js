@@ -819,6 +819,7 @@ function parseBrowseResp(data, parent, options, cacheKey) {
                     i.actions = undefined;
                     i.addAction = undefined;
                 }
+                i.emblem = getEmblem(i.extid);
                 if (i.isListItemInMenu) {
                     resp.actionItems.push(i);
                 } else {
